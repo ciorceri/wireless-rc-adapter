@@ -1,3 +1,5 @@
+# THIS FORK CONTAINS THE CHANGES THAT WORK WITH "Spektrum DX5e"
+
 ![Open Source Licensed](https://img.shields.io/badge/license-GPLv3-blue.svg?logo=apache&logoColor=lightblue&logoWidth=22) ![Compatible-platforms: Android, Windows, Apple, Linux](https://img.shields.io/badge/platforms-Android%20%7C%20Windows%20%7C%20Mac%20%7C%20Linux-lightgrey.svg?logo=nextdoor&logoColor=lightgrey&logoWidth=22) ![Arduino v1.8.2](https://img.shields.io/badge/arduino-v1.8.2-brightgreen.svg?logo=codecademy&logoColor=lightgreen&logoWidth=22) ![Up-To-Date Dependencies](https://img.shields.io/badge/dependencies-Up%20To%20Date-blue.svg?logo=google-keep&logoColor=lightblue&logoWidth=22) ![Arduino v1.8.2](https://img.shields.io/badge/development-Active-orange.svg?logo=verizon&logoColor=orange&logoWidth=22)
 ---
 

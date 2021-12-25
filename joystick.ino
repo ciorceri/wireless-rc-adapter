@@ -60,11 +60,11 @@
   #elif CHANNELS == 6
     #define INCLUDE_X_AXIS true
     #define INCLUDE_Y_AXIS true
-    #define INCLUDE_Z_AXIS true
+    #define INCLUDE_Z_AXIS false
     #define INCLUDE_RX_AXIS true
     #define INCLUDE_RY_AXIS true
     #define INCLUDE_RZ_AXIS false
-    #define BUTTON_COUNT 1
+    #define BUTTON_COUNT 2
   #elif CHANNELS == 7
     #define INCLUDE_X_AXIS true
     #define INCLUDE_Y_AXIS true
@@ -222,21 +222,18 @@
           #elif CHANNELS == 6
             switch (i) {
               case 0:  // CH 1
-                Joystick.setXAxis(rc_values[i]);
-                break;
-              case 1:  // CH 2
                 Joystick.setYAxis(rc_values[i]);
                 break;
-              case 2:  // CH 3
-                Joystick.setZAxis(rc_values[i]);
-                break;
-              case 3:  // CH 4
+              case 1:  // CH 2
                 Joystick.setRxAxis(rc_values[i]);
                 break;
-              case 4:  // CH 5
+              case 2:  // CH 3
                 Joystick.setRyAxis(rc_values[i]);
                 break;
-              case 5:  // CH 6
+              case 3:  // CH 4
+                Joystick.setXAxis(rc_values[i]);
+                break;
+              case 4: // BUTTON 1
                 #if defined(BTNKEY)
                   if (rc_values[i] < STICK_CENTER && !keyb_flag) {
                     Keyboard.write(BTN0_KEY_LOW);
@@ -248,6 +245,20 @@
                   }
                 #else
                   Joystick.setButton(0, rc_values[i] < STICK_CENTER ? 0 : 1);
+                #endif
+                break;
+              case 5: // BUTTON 2
+                #if defined(BTNKEY)
+                  if (rc_values[i] < STICK_CENTER && !keyb_flag) {
+                    Keyboard.write(BTN1_KEY_LOW);
+                    keyb_flag = true;
+                  }
+                  else if (rc_values[i] > STICK_CENTER && keyb_flag) {
+                    Keyboard.write(BTN1_KEY_HIGH);
+                    keyb_flag = false;
+                  }
+                #else
+                  Joystick.setButton(1, rc_values[i] < STICK_CENTER ? 0 : 1);
                 #endif
                 break;
             }
